@@ -19,11 +19,11 @@ module.exports = class Stonks extends (
   Plugin
 ) {
   async startPlugin() {
-    // powercord.api.settings.registerSettings("stonks", {
-    //   category: this.entityID,
-    //   label: "Stonks",
-    //   render: Settings,
-    // });
+    powercord.api.settings.registerSettings("stonks", {
+      category: this.entityID,
+      label: "Stonks",
+      render: Settings,
+    });
 
     this.loadStylesheet("style.css");
 
@@ -61,8 +61,10 @@ module.exports = class Stonks extends (
         final.push(
           React.createElement(Stonk, {
             symbol: word,
-            // graph: this.settings.get("graph", true),
-            // sparkline: this.settings.get("sparkline", false),
+            link: this.settings.get(
+              "link",
+              "https://www.cnbc.com/quotes/{{symbol}}"
+            ),
           })
         );
       });
@@ -72,6 +74,6 @@ module.exports = class Stonks extends (
 
   pluginWillUnload() {
     uninject("stonks");
-    // powercord.api.settings.unregisterSettings("stonks");
+    powercord.api.settings.unregisterSettings("stonks");
   }
 };
