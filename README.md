@@ -1,6 +1,6 @@
 # stonks
 
-A Powercord plugin that turns stock symbols into clickable links
+A Powercord plugin that turns stock symbols into clickable links.
 
 ## List of things to add
 
